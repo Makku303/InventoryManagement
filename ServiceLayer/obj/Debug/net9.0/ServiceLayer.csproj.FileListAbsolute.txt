@@ -1,0 +1,17 @@
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\ServiceLayer.deps.json
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\ServiceLayer.dll
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\ServiceLayer.pdb
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.AssemblyInfoInputs.cache
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.AssemblyInfo.cs
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.csproj.CoreCompileInputs.cache
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.dll
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\refint\ServiceLayer.dll
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.pdb
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ref\ServiceLayer.dll
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceLayer.csproj.AssemblyReference.cache
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\Core.dll
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\Core.pdb
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\obj\Debug\net9.0\ServiceL.3037F684.Up2Date
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\DataAccessLayer.dll
+C:\Users\KW362KN\source\repos\InventoryManagement\ServiceLayer\bin\Debug\net9.0\DataAccessLayer.pdb
