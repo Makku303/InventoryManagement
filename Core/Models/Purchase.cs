@@ -7,11 +7,6 @@ namespace Core.Models
     {
         [Key]
         public int Id { get; set; }
-
-        [Required]
-        public int SupplierId { get; set; }
-        public Supplier Supplier { get; set; }
-
         [MaxLength(200)]
         public string InvoiceNumber { get; set; }
 
@@ -19,12 +14,19 @@ namespace Core.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalAmount { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+        // Foreign Key to ApplicationUser who created the purchase
         public Guid CreatedById { get; set; }
         public ApplicationUser CreatedBy { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        // Foreign Key to Supplier
+        [Required]
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
 
+
+        // Navigation property for related purchase items
         public ICollection<PurchaseItem> PurchaseItems { get; set; }
     }
 }

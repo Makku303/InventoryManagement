@@ -1,8 +1,9 @@
-﻿using API.DTOs;
+﻿using API.Dtos;
 using Core.IServices;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -44,19 +45,26 @@ namespace API.Controllers
                 return BadRequest(ModelState);
 
             List<SaleItem> items = new List<SaleItem>();
-            items.Add(new SaleItem() { 
-                ProductId = dto.ProductId,
-                Quantity = dto.Quantity,
-                UnitPrice = dto.PricePerUnit
-            });
+            var saleItems = dto.SaleItems;
+            foreach (var item in saleItems)
+            {
+                items.Add(new SaleItem()
+                {
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    LineTotal = item.LineTotal
+                });
+            }
             var sale = new Sale
             {
                 SaleItems = items,
                 SaleDate = System.DateTime.UtcNow
             };
 
-            var result = await _inventoryService.AddSaleAsync(sale);
-            if (!result)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            var result = await _inventoryService.AddSaleAsync(sale, items, new Guid(userId));
+
+            if (result.GetType() != typeof(Sale))
                 return BadRequest(new { message = "Sale could not be processed (maybe insufficient stock)." });
 
             return Ok(new { message = "Sale logged successfully" });
@@ -70,7 +78,8 @@ namespace API.Controllers
             if (sale == null)
                 return NotFound();
 
-            await _inventoryService.DeleteSaleAsync(sale);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _inventoryService.DeleteSaleAsync(sale.Id, userId);
             return Ok(new { message = "Sale deleted successfully" });
         }
     }

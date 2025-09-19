@@ -8,20 +8,21 @@ namespace Core.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public int PurchaseId { get; set; }
-        public Purchase Purchase { get; set; }
-
-        [Required]
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
-
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal UnitCost { get; set; }
-
         public int Quantity { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal LineTotal { get; set; }
+
+        // Foreign Key to Purchase
+        [Required]
+        public int PurchaseId { get; set; }
+        public Purchase Purchase { get; set; }
+
+        // Foreign Key to Product
+        [Required]
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+
+        
     }
 }

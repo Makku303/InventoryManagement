@@ -1,8 +1,9 @@
-﻿using API.DTOs;
+﻿using API.Dtos;
 using Core.IServices;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -46,10 +47,15 @@ namespace API.Controllers
             var supplier = new Supplier
             {
                 Name = dto.Name,
-                ContactPhone = dto.ContactInfo
+                ContactPhone = dto.ContactPhone,
+                ContactEmail = dto.ContactEmail,
+                Address = dto.Address,
+                Notes = dto.Notes,
+                IsActive = true
             };
 
-            await _supplierService.AddSupplierAsync(supplier);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _supplierService.AddSupplierAsync(supplier, userId);
             return Ok(new { message = "Supplier added successfully" });
         }
 
@@ -62,9 +68,13 @@ namespace API.Controllers
                 return NotFound();
 
             supplier.Name = dto.Name;
-            supplier.ContactPhone = dto.ContactInfo;
+            supplier.ContactPhone = dto.ContactPhone;
+            supplier.ContactEmail = dto.ContactEmail;
+            supplier.Address = dto.Address;
+            supplier.Notes = dto.Notes;
 
-            await _supplierService.UpdateSupplierAsync(supplier);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _supplierService.UpdateSupplierAsync(supplier, userId);
             return Ok(new { message = "Supplier updated successfully" });
         }
 
@@ -76,7 +86,8 @@ namespace API.Controllers
             if (supplier == null)
                 return NotFound();
 
-            await _supplierService.DeleteSupplierAsync(supplier);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _supplierService.DeleteSupplierAsync(supplier, userId);
             return Ok(new { message = "Supplier deleted successfully" });
         }
     }

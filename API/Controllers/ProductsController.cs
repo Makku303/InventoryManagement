@@ -1,10 +1,11 @@
-﻿using API.DTOs;
+﻿using API.Dtos;
 using Core.IServices;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
-namespace InventorySystem.Controllers
+namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -52,7 +53,8 @@ namespace InventorySystem.Controllers
                 UnitPrice = dto.Price
             };
 
-            await _inventoryService.AddProductAsync(product);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _inventoryService.AddProductAsync(product, userId);
             return Ok(new { message = "Product added successfully" });
         }
 
@@ -73,7 +75,8 @@ namespace InventorySystem.Controllers
             product.QuantityOnHand = dto.Quantity;
             product.UnitPrice = dto.Price;
 
-            await _inventoryService.UpdateProductAsync(product);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _inventoryService.UpdateProductAsync(product, userId);
             return Ok(new { message = "Product updated successfully" });
         }
 
@@ -85,7 +88,8 @@ namespace InventorySystem.Controllers
             if (product == null)
                 return NotFound();
 
-            await _inventoryService.DeleteProductAsync(product.Id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _inventoryService.DeleteProductAsync(product.Id, userId);
             return Ok(new { message = "Product deleted successfully" });
         }
 
@@ -108,9 +112,9 @@ namespace InventorySystem.Controllers
 
         [HttpGet("best-selling")]
         [Authorize(Roles = "Admin,Staff")]
-        public async Task<IActionResult> GetBestSellingProducts([FromQuery] int top = 5)
+        public async Task<IActionResult> GetBestSellingProducts([FromQuery] DateTime from, [FromQuery] DateTime to, [FromQuery] int top = 5)
         {
-            var products = await _inventoryService.GetBestSellingProductsAsync(top);
+            var products = await _inventoryService.GetBestSellingProductsAsync(DateTime.MinValue, DateTime.Now, top);
             return Ok(products);
         }
     }

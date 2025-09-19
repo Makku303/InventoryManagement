@@ -1,74 +1,5 @@
 [
   {
-    "ContainingType": "API.Controllers.AuditLogsController",
-    "Method": "GetAuditLogs",
-    "RelativePath": "api/AuditLogs",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "startDate",
-        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "endDate",
-        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.AuditLogsController",
-    "Method": "GetAuditLogById",
-    "RelativePath": "api/AuditLogs/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.AuditLogsController",
-    "Method": "DeleteAuditLog",
-    "RelativePath": "api/AuditLogs/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.AuditLogsController",
-    "Method": "ClearAuditLogs",
-    "RelativePath": "api/AuditLogs/clear",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "beforeDate",
-        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "API.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -78,7 +9,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "API.DTOs.LoginDto",
+        "Type": "API.Dtos.LoginDto",
         "IsRequired": true
       }
     ],
@@ -104,7 +35,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "API.DTOs.RegisterDto",
+        "Type": "API.Dtos.RegisterDto",
         "IsRequired": true
       }
     ],
@@ -120,7 +51,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "API.DTOs.UpdateProfileDto",
+        "Type": "API.Dtos.UpdateProfileDto",
         "IsRequired": true
       }
     ],
@@ -133,7 +64,23 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -143,7 +90,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "threshold",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -163,7 +116,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -173,11 +137,22 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "GetAllProducts",
     "RelativePath": "api/Products",
     "HttpMethod": "GET",
@@ -187,7 +162,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "AddProduct",
     "RelativePath": "api/Products",
     "HttpMethod": "POST",
@@ -196,14 +171,14 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "API.DTOs.ProductDto",
+        "Type": "API.Dtos.ProductDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "GetProductById",
     "RelativePath": "api/Products/{id}",
     "HttpMethod": "GET",
@@ -219,7 +194,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "UpdateProduct",
     "RelativePath": "api/Products/{id}",
     "HttpMethod": "PUT",
@@ -233,14 +208,14 @@
       },
       {
         "Name": "dto",
-        "Type": "API.DTOs.ProductDto",
+        "Type": "API.Dtos.ProductDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "DeleteProduct",
     "RelativePath": "api/Products/{id}",
     "HttpMethod": "DELETE",
@@ -256,13 +231,23 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "GetBestSellingProducts",
     "RelativePath": "api/Products/best-selling",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
       {
         "Name": "top",
         "Type": "System.Int32",
@@ -272,7 +257,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "GetLowStockProducts",
     "RelativePath": "api/Products/low-stock",
     "HttpMethod": "GET",
@@ -288,7 +273,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InventorySystem.Controllers.ProductsController",
+    "ContainingType": "API.Controllers.ProductsController",
     "Method": "GetOutOfStockProducts",
     "RelativePath": "api/Products/out-of-stock",
     "HttpMethod": "GET",
@@ -317,7 +302,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "API.DTOs.PurchaseDto",
+        "Type": "API.Dtos.PurchaseDto",
         "IsRequired": true
       }
     ],
@@ -438,7 +423,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "API.DTOs.SaleDto",
+        "Type": "API.Dtos.SaleDto",
         "IsRequired": true
       }
     ],
@@ -496,7 +481,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "API.DTOs.SupplierDto",
+        "Type": "API.Dtos.SupplierDto",
         "IsRequired": true
       }
     ],
@@ -533,7 +518,7 @@
       },
       {
         "Name": "dto",
-        "Type": "API.DTOs.SupplierDto",
+        "Type": "API.Dtos.SupplierDto",
         "IsRequired": true
       }
     ],

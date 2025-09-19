@@ -1,18 +1,13 @@
 ﻿using Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.IServices
 {
     public interface IDashboardService
     {
-        Task<Product> GetBestSellingProductsAsync(); //To be updated if needed a list results
-        Task<Product> GetLowStockProductsAsync(); //To be updated if needed a list results
-        Task<Product> GetOutOfStockProductsAsync(); //To be updated if needed a list results
-        Task<Product> GetRecentPurchasesAsync(); //To be updated if needed a list results
-        Task<Product> GetRecentSalesAsync(); //To be updated if needed a list results
+        Task<IEnumerable<Product>> GetBestSellingProductsAsync(DateTime from, DateTime to, int topN);
+        Task<IEnumerable<Product>> GetLowStockProductsAsync(int threshold); 
+        Task<IEnumerable<Product>> GetOutOfStockProductsAsync();
+        Task<IEnumerable<Purchase>> GetRecentPurchasesAsync(DateTime from, DateTime to);
+        Task<IEnumerable<Sale>> GetRecentSalesAsync(DateTime from, DateTime to);
     }
 }

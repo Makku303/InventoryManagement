@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mac\\source\\repos\\Inventory\\API\\API.csproj": {}
+    "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mac\\source\\repos\\Inventory\\API\\API.csproj": {
+    "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mac\\source\\repos\\Inventory\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\mac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mac\\source\\repos\\Inventory\\API\\obj\\",
+        "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\KW362KN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KW362KN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,11 +32,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\mac\\source\\repos\\Inventory\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Application\\Application.csproj"
+              "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\ServiceLayer\\ServiceLayer.csproj": {
+                "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\ServiceLayer\\ServiceLayer.csproj"
               }
             }
           }
@@ -69,23 +69,19 @@
               "target": "Package",
               "version": "[9.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[9.0.4, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[8.14.0, )"
             }
           },
           "imports": [
@@ -107,93 +103,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mac\\source\\repos\\Inventory\\Application\\Application.csproj": {
+    "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mac\\source\\repos\\Inventory\\Application\\Application.csproj",
-        "projectName": "Application",
-        "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\mac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Application\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\mac\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net9.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
-            "projectReferences": {
-              "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
-      },
-      "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\mac\\source\\repos\\Inventory\\Core\\Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\mac\\source\\repos\\Inventory\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\mac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Core\\obj\\",
+        "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\KW362KN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KW362KN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -247,24 +174,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj",
-        "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\mac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Infrastructure\\obj\\",
+        "projectUniqueName": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectName": "DataAccessLayer",
+        "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\KW362KN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KW362KN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -279,8 +206,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\mac\\source\\repos\\Inventory\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\mac\\source\\repos\\Inventory\\Core\\Core.csproj"
+              "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj"
               }
             }
           }
@@ -305,23 +232,13 @@
               "target": "Package",
               "version": "[9.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.8, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.8, )"
             },
-            "Microsoft.Extensions.Identity.Stores": {
+            "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[9.0.8, )"
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
@@ -340,7 +257,79 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\ServiceLayer\\ServiceLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\ServiceLayer\\ServiceLayer.csproj",
+        "projectName": "ServiceLayer",
+        "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\ServiceLayer\\ServiceLayer.csproj",
+        "packagesPath": "C:\\Users\\KW362KN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\ServiceLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\KW362KN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\Core\\Core.csproj"
+              },
+              "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\KW362KN\\source\\repos\\InventoryManagement\\DataAccessLayer\\DataAccessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

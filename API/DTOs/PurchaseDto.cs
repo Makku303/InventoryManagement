@@ -1,10 +1,17 @@
-﻿namespace API.DTOs
+﻿using Core.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace API.Dtos
 {
     public class PurchaseDto
     {
-        public int ProductId { get; set; }
+        public string InvoiceNumber { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public int SupplierId { get; set; }
-        public int Quantity { get; set; }
-        public decimal PricePerUnit { get; set; }
+
+
+        // Navigation property for related purchase items
+        public ICollection<PurchaseItemDto> PurchaseItems { get; set; }
     }
 }

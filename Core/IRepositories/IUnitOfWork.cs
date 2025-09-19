@@ -6,6 +6,7 @@
         IPurchaseRepository Purchases { get; }
         ISaleRepository Sales { get; }
         IInventoryTransactionRepository InventoryTransactions { get; }
+        ISupplierRepository Suppliers { get; }
         Task<int> SaveChangesAsync();
     }
 }

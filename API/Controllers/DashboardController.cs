@@ -6,7 +6,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin,Staff")]
+    //[Authorize(Roles = "Admin,Staff")]
     public class DashboardController : ControllerBase
     {
         private readonly IDashboardService _dashboardService;
@@ -17,9 +17,9 @@ namespace API.Controllers
         }
 
         [HttpGet("low-stock")]
-        public async Task<IActionResult> GetLowStockProducts()
+        public async Task<IActionResult> GetLowStockProducts([FromQuery] int threshold = 10)
         {
-            var products = await _dashboardService.GetLowStockProductsAsync();
+            var products = await _dashboardService.GetLowStockProductsAsync(threshold);
             return Ok(products);
         }
 
@@ -31,23 +31,23 @@ namespace API.Controllers
         }
 
         [HttpGet("best-sellers")]
-        public async Task<IActionResult> GetBestSellingProducts()
+        public async Task<IActionResult> GetBestSellingProducts([FromQuery] DateTime from, [FromQuery] DateTime to, [FromQuery] int top)
         {
-            var products = await _dashboardService.GetBestSellingProductsAsync();
+            var products = await _dashboardService.GetBestSellingProductsAsync(from, to, top);
             return Ok(products);
         }
 
         [HttpGet("recent-sales")]
-        public async Task<IActionResult> GetRecentSales()
+        public async Task<IActionResult> GetRecentSales(DateTime from, DateTime to)
         {
-            var sales = await _dashboardService.GetRecentSalesAsync();
+            var sales = await _dashboardService.GetRecentSalesAsync(from, to);
             return Ok(sales);
         }
 
         [HttpGet("recent-purchases")]
-        public async Task<IActionResult> GetRecentPurchases()
+        public async Task<IActionResult> GetRecentPurchases(DateTime from, DateTime to)
         {
-            var purchases = await _dashboardService.GetRecentPurchasesAsync();
+            var purchases = await _dashboardService.GetRecentPurchasesAsync(from, to);
             return Ok(purchases);
         }
     }

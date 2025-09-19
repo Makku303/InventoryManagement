@@ -1,9 +1,13 @@
-﻿namespace API.DTOs
+﻿namespace API.Dtos
 {
     public class SaleDto
     {
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
-        public decimal PricePerUnit { get; set; }
+        public string CustomerName { get; set; }
+        public string InvoiceNumber { get; set; }
+        public DateTime SaleDate { get; set; } = DateTime.UtcNow;
+        public decimal TotalAmount { get; set; }
+
+        // Navigation property for related sale items
+        public ICollection<SaleItemDto> SaleItems { get; set; }
     }
 }

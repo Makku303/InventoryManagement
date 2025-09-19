@@ -6,5 +6,6 @@ namespace Core.IRepositories
     {
         Task<Purchase> GetByIdWithItemsAsync(int id);
         Task AddPurchaseAsync(Purchase purchase, IEnumerable<PurchaseItem> items);
+        Task<IEnumerable<Purchase>> GetByDateRangeAsync(DateTime from, DateTime to);
     }
 }

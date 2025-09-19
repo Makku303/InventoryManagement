@@ -13,10 +13,6 @@ namespace Core.Models
         public string Name { get; set; }
 
         [Required]
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
-        [Required]
         [MaxLength(100)]
         public string SKU { get; set; }
 
@@ -26,7 +22,7 @@ namespace Core.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal UnitPrice { get; set; }
 
-        public int ReorderLevel { get; set; } = 0;
+        public int ReorderLevel { get; set; } = 0; // quantity at which to reorder
 
         public int QuantityOnHand { get; set; } = 0;
 
@@ -35,10 +31,18 @@ namespace Core.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
 
-        // Concurrency token
+        // Foreign Key to Category
+
+        [Required]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        // Concurrency token to ensure data integrity and consistency
+        // when multiple users or processes attempt to update the same data simultaneously
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
+        // Navigation properties
         public ICollection<PurchaseItem> PurchaseItems { get; set; }
         public ICollection<SaleItem> SaleItems { get; set; }
         public ICollection<InventoryTransaction> InventoryTransactions { get; set; }

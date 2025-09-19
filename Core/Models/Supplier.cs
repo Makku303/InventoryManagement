@@ -25,6 +25,7 @@ namespace Core.Models
 
         public bool IsActive { get; set; } = true;
 
+        // Navigation property for related purchases
         public ICollection<Purchase> Purchases { get; set; }
     }
 }

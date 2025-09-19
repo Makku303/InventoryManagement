@@ -1,8 +1,9 @@
-﻿using API.DTOs;
+﻿using API.Dtos;
 using Core.IServices;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -42,13 +43,17 @@ namespace API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            List<PurchaseItem> items =  new List<PurchaseItem>();
-
-            items.Add(new PurchaseItem() { 
-             ProductId = dto.ProductId,
-             Quantity = dto.Quantity,
-             UnitCost = dto.PricePerUnit
-            });
+            List<PurchaseItem> items = new List<PurchaseItem>();
+            var purchaseItems = dto.PurchaseItems;
+            foreach (var item in purchaseItems)
+            {
+                items.Add(new PurchaseItem()
+                {
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    LineTotal = item.LineTotal
+                });
+            }
             var purchase = new Purchase
             {
                 SupplierId = dto.SupplierId,
@@ -56,8 +61,10 @@ namespace API.Controllers
                 PurchaseDate = System.DateTime.UtcNow
             };
 
-            var result = await _inventoryService.AddPurchaseAsync(purchase);
-            if (!result)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            var result = await _inventoryService.AddPurchaseAsync(purchase, items, new Guid(userId));
+
+            if (result.GetType() != typeof(Purchase))
                 return BadRequest(new { message = "Purchase could not be processed." });
 
             return Ok(new { message = "Purchase logged successfully" });
@@ -70,8 +77,8 @@ namespace API.Controllers
             var purchase = await _inventoryService.GetPurchaseByIdAsync(id);
             if (purchase == null)
                 return NotFound();
-
-            await _inventoryService.DeletePurchaseAsync(purchase);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "system";
+            await _inventoryService.DeletePurchaseAsync(purchase.Id, userId);
             return Ok(new { message = "Purchase deleted successfully" });
         }
     }

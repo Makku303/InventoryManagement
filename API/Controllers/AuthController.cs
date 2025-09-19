@@ -1,4 +1,4 @@
-﻿using API.DTOs;
+﻿using API.Dtos;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -43,7 +43,9 @@ namespace API.Controllers
             {
                 UserName = model.Email,
                 Email = model.Email,
-                FullName = model.FullName
+                FirstName = model.FirstName,
+                MiddleInitial = model.MidInitial,
+                LastName = model.LastName,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -108,7 +110,10 @@ namespace API.Controllers
             if (user == null)
                 return NotFound("User not found");
 
-            user.FullName = model.FullName ?? user.FullName;
+            //user.FullName = model.FullName ?? user.FullName;
+            user.FirstName = model.FirstName ?? user.FirstName;
+            user.MiddleInitial = model.MidInitial ?? user.MiddleInitial;
+            user.LastName = model.LastName ?? user.LastName;
 
             if (!string.IsNullOrEmpty(model.NewPassword))
             {
